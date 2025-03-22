@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import { toast } from "sonner";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Booking } from "@/lib/types";
@@ -72,6 +73,7 @@ const MyBookings = () => {
             <div className="text-center">Đang tải...</div>
           </div>
         </main>
+        <Footer />
       </div>
     );
   }
@@ -163,14 +165,7 @@ const MyBookings = () => {
         </div>
       </main>
 
-      <footer className="bg-gray-900 text-white py-8 mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} VietStay. Tất cả các quyền được bảo
-            lưu.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
