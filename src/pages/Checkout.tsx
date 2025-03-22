@@ -15,6 +15,9 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { booking, hotel } = location.state || {};
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [customerName, setCustomerName] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
 
   if (!booking || !hotel) {
     navigate("/");
@@ -34,6 +37,9 @@ const Checkout = () => {
         bookingDate: new Date(),
         hotelName: hotel.name,
         hotelImage: hotel.images[0],
+        customerName,
+        customerEmail,
+        customerPhone,
       };
 
       // Save to localStorage
@@ -76,15 +82,31 @@ const Checkout = () => {
                       <div className="space-y-4">
                         <div>
                           <Label htmlFor="fullName">Họ và tên</Label>
-                          <Input id="fullName" required />
+                          <Input
+                            id="fullName"
+                            required
+                            value={customerName}
+                            onChange={(e) => setCustomerName(e.target.value)}
+                          />
                         </div>
                         <div>
                           <Label htmlFor="email">Email</Label>
-                          <Input id="email" type="email" required />
+                          <Input
+                            id="email"
+                            type="email"
+                            required
+                            value={customerEmail}
+                            onChange={(e) => setCustomerEmail(e.target.value)}
+                          />
                         </div>
                         <div>
                           <Label htmlFor="phone">Số điện thoại</Label>
-                          <Input id="phone" required />
+                          <Input
+                            id="phone"
+                            required
+                            value={customerPhone}
+                            onChange={(e) => setCustomerPhone(e.target.value)}
+                          />
                         </div>
                       </div>
                     </CardContent>
